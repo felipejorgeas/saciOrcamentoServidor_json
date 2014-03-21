@@ -1,0 +1,20 @@
+## SACI Orçamento - servidor
+#
+# Aplicativo auxiliar na criação de orçamentos no ERP SACI.
+#
+## Autor: Felipe Jorge - EAC Software
+
+
+# v0.3 - 28/03/2014
+
+- Melhoria na tecnologia de comunição entre aplicativo e servidor.
+
+
+# v0.2 - 20/03/2014
+
+- Adicionado a gravação do log das operações realizadas.
+
+
+# v0.1 - 20/02/2014
+
+- Versão inicial do aplicativo.
