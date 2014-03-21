@@ -90,7 +90,7 @@ if ($res['resultado']['sucesso'] && isset($res['resultado']['dados']['funcionari
         'nome' => $funcionario['nome_funcionario'],
         'email' => $funcionario['email'],
         'loja' => $funcionario['codigo_loja'],
-        'usuario' => $funcionario['codigo_usuario'],
+        'usuario' => $codigo_usuario,
         'permissao' => $permissao
     );
   }
