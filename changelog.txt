@@ -5,7 +5,7 @@
 ## Autor: Felipe Jorge - EAC Software
 
 
-# v0.3 - 28/03/2014
+# v0.3 - 31/03/2014
 
 - Melhoria na tecnologia de comunição entre aplicativo e servidor.
 
