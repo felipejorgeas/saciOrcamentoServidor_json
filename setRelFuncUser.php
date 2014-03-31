@@ -97,7 +97,7 @@ if($telaLogin){
       </head>
       </head>
       <body>
-        <h1>Login</h1>
+        <h1>Login de acesso</h1>
         <form method='post'>
           <input type='hidden' name='confirm' value='1'/>
           <p>Apelido funcionário: <input type='text' name='usuario' value='' /></p>
