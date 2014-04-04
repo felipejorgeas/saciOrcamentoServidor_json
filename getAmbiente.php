@@ -46,6 +46,9 @@ $params = array(
 $result = $client->call('listar', $params);
 $res = XML2Array::createArray($result);
 
+// grava log
+$log->addLog(ACAO_RETORNO, "dadosAmbientes", $result);
+
 $wsstatus = 1;
 
 // ambiente padrao

@@ -47,6 +47,9 @@ $params = array(
 $result = $client->call('listar', $params);
 $res = XML2Array::createArray($result);
 
+// grava log
+$log->addLog(ACAO_RETORNO, "dadosFuncionario", $result);
+
 if ($res['resultado']['sucesso'] && isset($res['resultado']['dados']['funcionario'])) {
   $funcionario = $res['resultado']['dados']['funcionario'];
 
