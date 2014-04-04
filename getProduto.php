@@ -57,6 +57,9 @@ $params = array(
 $result = $client->call('listar', $params);
 $res = XML2Array::createArray($result);
 
+// grava log
+$log->addLog(ACAO_RETORNO, "dadosProduto", $result);
+
 if ($res['resultado']['sucesso'] && isset($res['resultado']['dados']['produto'])) {
   $produto = $res['resultado']['dados']['produto'];
 
@@ -86,6 +89,9 @@ if ($res['resultado']['sucesso'] && isset($res['resultado']['dados']['produto'])
 
     foreach($estoques as $estoque){
 
+      // seta o preco
+      $wsresult['preco'] = number_format($estoque['preco'] / 100, 2, ',', '.');
+
       $lojas = array();
       $insertStk = false;
 
@@ -101,29 +107,17 @@ if ($res['resultado']['sucesso'] && isset($res['resultado']['dados']['produto'])
 
       /* obtem apenas o estoque da lista de lojas definidas */
       if(in_array($estoque['codigo_loja'], $lojas)){
+        $qtty_estoque = $estoque['qtty'] - $estoque['qtty_reservada'];
+        $qtty_estoque = $qtty_estoque > 0 ? $qtty_estoque : 0;
+        $estoqueOk = true;
 
-        /* apenas serao listados os estoques maiores que '0' */
-        if(($estoque['qtty'] - $estoque['qtty_reservada']) > 0){
-          $qtty_estoque = $estoque['qtty'] - $estoque['qtty_reservada'];
-          $estoqueOk = true;
-          $insertStk = true;
-        }
-        else if($estoque['grade'] == $grade_encomenda){
-          $qtty_estoque = 0;
-          $estoqueOk = true;
-          $insertStk = true;
-        }
-
-        if($insertStk){
-
-          $wsresult['estoque'][] = array(
-              'barcode' => $estoque['codigo_barra_produto'],
-              'grade' => $estoque['grade'],
-              'codigo_loja' => $estoque['codigo_loja'],
-              'nome_loja' => $estoque['nome_loja'],
-              'qtty' => $qtty_estoque
-          );
-        }
+        $wsresult['estoque'][] = array(
+            'barcode' => $estoque['codigo_barra_produto'],
+            'grade' => $estoque['grade'],
+            'codigo_loja' => $estoque['codigo_loja'],
+            'nome_loja' => $estoque['nome_loja'],
+            'qtty' => $qtty_estoque
+        );
       }
     }
   }
@@ -132,7 +126,8 @@ if ($res['resultado']['sucesso'] && isset($res['resultado']['dados']['produto'])
   if(!$estoqueOk){
     /* monta o xml de retorno */
     $wsstatus = 0;
-    $wsresult['wserror'] = "Produto sem estoque no momento!";
+    //$wsresult['wserror'] = "Produto sem estoque em nenhuma loja no momento!";
+    $wsresult['wserror'] = "N&atilde;o há estoque cadastrado para este produto!";
 
     // grava log
     $log->addLog(ACAO_RETORNO, "", $wsresult, SEPARADOR_FIM);
