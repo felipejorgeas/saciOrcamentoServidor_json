@@ -5,6 +5,15 @@
 ## Autor: Felipe Jorge - EAC Software
 
 
+# v0.4 - 04/04/2014
+
+- A partir desta vesão permite o retorno de produtos sem estoque disponível.
+
+- Adicionado o preço do produto.
+
+- Melhoria na gravação do log.
+
+
 # v0.3 - 31/03/2014
 
 - Melhoria na tecnologia de comunição entre aplicativo e servidor.
