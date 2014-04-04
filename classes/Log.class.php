@@ -49,7 +49,7 @@ class Log {
       $this->openLog();
       $content = sprintf("%s%s= %s", chr(10), ($sep == SEPARADOR_INICIO ? $this->sep . chr(10) : ""), date('d/m/Y H:i:s'));
       $content .= sprintf(" | %s: %s%s", $type, $method, chr(10));
-      $content .= sprintf("%s%s%s%s", chr(10), implode(' ', $info), ($sep == SEPARADOR_FIM ? chr(10) . $this->sep : ""), chr(10));
+      $content .= sprintf("%s%s%s%s", chr(10), print_r($info, 1), ($sep == SEPARADOR_FIM ? chr(10) . $this->sep : ""), chr(10));
       fprintf($this->log, $content);
       $this->closeLog();
     }
