@@ -127,7 +127,7 @@ if ($res['resultado']['sucesso'] && isset($res['resultado']['dados']['produto'])
     /* monta o xml de retorno */
     $wsstatus = 0;
     //$wsresult['wserror'] = "Produto sem estoque em nenhuma loja no momento!";
-    $wsresult['wserror'] = "N&atilde;o há estoque cadastrado para este produto!";
+    $wsresult['wserror'] = "N&atilde;o h&atilde; estoque cadastrado para este produto!";
 
     // grava log
     $log->addLog(ACAO_RETORNO, "", $wsresult, SEPARADOR_FIM);
