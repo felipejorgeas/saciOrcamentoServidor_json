@@ -240,6 +240,9 @@ $i = 0;
 $ambiente_anterior = "";
 
 foreach ($prds as $produto) {
+  if(!$produto['codigo_produto'] > 0)
+    continue;
+
   if (($i > 0) && ($i == 4)) {
     $content .= '  </div>
                   </div>
@@ -261,7 +264,7 @@ foreach ($prds as $produto) {
     while ((false !== ($file = readdir($handle)))) {
       $file = trim($file);
 
-      if (in_array($file, array(".", "..")))
+      if (in_array($file, array(".", "..")) || empty($file))
         continue;
 
       //obtem a extensao do anexo
