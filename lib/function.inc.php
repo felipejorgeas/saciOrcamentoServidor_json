@@ -35,9 +35,11 @@ function mergeProdutos($produtos){
     for ($j = 0; $j < $q; $j++) {
       $prdno = $produtos[$i]['codigo_produto'];
       $grade = $produtos[$i]['grade_produto'];
+      $ambiente = $produtos[$i]['ambiente'];
       $prdno_aux = $produtos_aux[$j]['codigo_produto'];
       $grade_aux = $produtos_aux[$j]['grade_produto'];
-      if (($i != $j) && ($prdno == $prdno_aux) && ($grade == $grade_aux)) {
+      $ambiente_aux = $produtos_aux[$j]['ambiente'];
+      if (($i != $j) && ($prdno == $prdno_aux) && ($grade == $grade_aux) && ($ambiente == $ambiente_aux)) {
         $produtos[$i]['quantidade'] += $produtos_aux[$j]['quantidade'];
         unset($produtos_aux[$j]);
         unset($produtos[$j]);
