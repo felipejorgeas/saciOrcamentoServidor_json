@@ -5,6 +5,15 @@
 ## Autor: Felipe Jorge - EAC Software
 
 
+# v0.5 - 23/04/2014
+
+- Habilitado para funcionar com o conceito de ambientes do SACI.
+
+- Melhoria na inserção de orçamentos com grandes quantidades de itens.
+
+- Melhoria no envio de orçamentos por email.
+
+
 # v0.4 - 04/04/2014
 
 - A partir desta vesão permite o retorno de produtos sem estoque disponível.
