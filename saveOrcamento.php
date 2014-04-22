@@ -15,15 +15,25 @@ $conf = getConfig();
 $ws = sprintf("%s/pedidows.php", $conf['SISTEMA']['saciWS']);
 $storeno = $conf["MISC"]['loja'];
 $pdvno = $conf["MISC"]['pdv'];
+$dir_tmp = "tmp/";
 
 /* variaveis recebidas na requisicao
  * {Array}: dados(wscallback, orcamento(codigo, funcionario, usuario, cliente, produtos(
- *                           codigo_produto, grade_produto, quantidade, loja, ambiente)))
+ *                           codigo_produto, grade_produto, quantidade, ambiente)))
  */
 $dados = $_REQUEST['dados'];
 $wscallback = $dados['wscallback'];
 $orcamento = $dados['orcamento'];
+$file = $orcamento["file"];
+
+$content = file_get_contents($dir_tmp . $file);
+unlink($dir_tmp . $file);
+$orcamento = (array) json_decode($content);
 $produtos = $orcamento['produtos'];
+
+// converte cada posicao object para array
+foreach($produtos as &$prd)
+  $prd = (array) $prd;
 
 /* variaveis de retorno do ws */
 $wsstatus = 0;
@@ -71,9 +81,6 @@ if (key_exists('0', $produtos))
   $codigos = $produtos;
 else
   $codigos[] = $produtos;
-
-/* mescla as quantidades de produtos duplicados */
-$codigos = mergeProdutos($codigos);
 
 $produtos = "";
 
