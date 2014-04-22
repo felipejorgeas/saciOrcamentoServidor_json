@@ -10,5 +10,6 @@
 
   <body><h1>Seja bem vindo ao saciOrçamento - Servidor</h1>
     <p>Sistema para auxiliar na inserção de orçamentos no SACI - v <a href="changelog.txt"><?=VERSAO?></a></p>
+    <p><a href="setRelFuncUser.php">Relação Funcionário x Usuário</a></p>
   </body>
 </html>
