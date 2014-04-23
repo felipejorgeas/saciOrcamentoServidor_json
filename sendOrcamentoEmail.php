@@ -186,7 +186,7 @@ $content = '<style type="text/css">
                 </td>
                 <td style="width: 50%; text-align: right">
                     ' . $data . '
-                    <br/><br/><span style="font-size: 20px;">Orçamento</span>
+                    <br/><br/><span style="font-size: 20px;">Memorial Descritivo</span>
                 </td>
             </tr>
         </table>
