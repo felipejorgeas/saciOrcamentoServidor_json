@@ -110,6 +110,17 @@ if ($res['resultado']['sucesso'] && isset($res['resultado']['dados']['funcionari
   }
 }
 
+else{
+   /* monta o xml de retorno */
+   $wsstatus = 0;
+   $wsresult['wserror'] = "Funcion&aacute;rio n&atilde;o encontrado.";
+
+   // grava log
+   $log->addLog(ACAO_RETORNO, "", $wsresult, SEPARADOR_FIM);
+
+   returnWS($wscallback, $wsstatus, $wsresult);
+}
+
 // grava log
 $log->addLog(ACAO_RETORNO, $wscallback, $wsresult, SEPARADOR_FIM);
 
