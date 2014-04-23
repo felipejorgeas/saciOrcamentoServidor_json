@@ -5,6 +5,11 @@
 ## Autor: Felipe Jorge - EAC Software
 
 
+# v0.6 - 24/04/2014
+
+- Adicionado a gravação dos precos dos produtos no orçamento.
+
+
 # v0.5 - 23/04/2014
 
 - Habilitado para funcionar com o conceito de ambientes do SACI.
