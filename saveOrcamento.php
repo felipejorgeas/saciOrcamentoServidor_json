@@ -186,12 +186,12 @@ if ($update > 0) {
         <prdno>%s</prdno>
         <grade>%s</grade>
         <qtty>%s</qtty>
-        <preco_unitario>0</preco_unitario>
+        <preco_unitario>%s</preco_unitario>
         <codigo_endereco_entrega>0</codigo_endereco_entrega>
         <loja_retira>0</loja_retira>
         <ambiente>%d</ambiente>
       </produto>",
-      $produto['codigo_produto'], $produto['grade_produto'], $produto['quantidade'], $produto['ambiente']);
+      $produto['codigo_produto'], $produto['grade_produto'], $produto['quantidade'], $produto['preco'], $produto['ambiente']);
   }
 }
 
@@ -203,12 +203,12 @@ else {
         <prdno>%s</prdno>
         <grade>%s</grade>
         <qtty>%s</qtty>
-        <preco_unitario>0</preco_unitario>
+        <preco_unitario>%s</preco_unitario>
         <codigo_endereco_entrega>0</codigo_endereco_entrega>
         <loja_retira>0</loja_retira>
         <ambiente>%d</ambiente>
       </produto>",
-      $produto['codigo_produto'], $produto['grade_produto'], $produto['quantidade'], $produto['ambiente']);
+      $produto['codigo_produto'], $produto['grade_produto'], $produto['quantidade'], $produto['preco'], $produto['ambiente']);
   }
 }
 
