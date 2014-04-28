@@ -5,6 +5,13 @@
 ## Autor: Felipe Jorge - EAC Software
 
 
+# v0.7 - 28/04/2014
+
+- Adicionado o código do orçamento no memorial descritivo enviado por email.
+
+- Adicionado tratamento para permitir apenas imagens em formato jpg.
+
+
 # v0.6 - 24/04/2014
 
 - Adicionado a gravação dos precos dos produtos no orçamento.
