@@ -186,7 +186,7 @@ $content = '<style type="text/css">
                 </td>
                 <td style="width: 50%; text-align: right">
                     ' . $data . '
-                    <br/><br/><span style="font-size: 20px;">Memorial Descritivo</span>
+                    <br/><br/><span style="font-size: 20px;">Memorial Descritivo #' . $orcamento['codigo'] . '</span>
                 </td>
             </tr>
         </table>
@@ -235,8 +235,6 @@ usort($prds, "cmp");
 $page = 1;
 $i = 0;
 
-//echo '<pre>'; print_r($prds); exit;
-
 $ambiente_anterior = "";
 
 foreach ($prds as $produto) {
@@ -252,6 +250,8 @@ foreach ($prds as $produto) {
                     <div class="produtos">';
     $i = 0;
   }
+
+  $miniatura = 'img/logo_nophoto.jpg';
 
   /* define o caminho completo do diteretorio de imagens do produto buscado */
   $dir_full = sprintf("%s/%s/", $dir_imgs, $produto['codigo_produto']);
@@ -271,6 +271,9 @@ foreach ($prds as $produto) {
       $filepath = explode(".", $file);
       $extensao = end($filepath);
 
+      if(!in_array($extensao, $extensions_enable))
+        continue;
+
       //define o nome da miniatura da imagem
       $file_min = str_replace('.' . $extensao, '_min.' . $extensao, $file);
 
@@ -287,8 +290,6 @@ foreach ($prds as $produto) {
       }
       break;
     }
-  } else {
-    $miniatura = 'img/logo_nophoto.jpg';
   }
 
   $ws_amb = sprintf("%s/ambientews.php", $conf['SISTEMA']['saciWS']);
