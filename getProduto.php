@@ -151,6 +151,9 @@ if ($res['resultado']['sucesso'] && isset($res['resultado']['dados']['produto'])
       $filepath = explode(".", $file);
       $extensao = end($filepath);
 
+      if(!in_array($extensao, $extensions_enable))
+        continue;
+
       /* verifica se a miniatura a existe */
       $fileOk = explode('_min.' . $extensao, $file);
       if(key_exists("1", $fileOk))
