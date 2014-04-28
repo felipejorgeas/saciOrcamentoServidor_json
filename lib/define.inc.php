@@ -1,7 +1,7 @@
 <?php
 
 // versao do sistema
-define('VERSAO', '0.6');
+define('VERSAO', '0.7');
 
 // Cargo do Funcionario 'empfnc.type' ON (emp.funcao = empfnc.no)
 define('EMPTYPE_INDEFINIDO',  0);
@@ -39,5 +39,9 @@ define('EORDSTATUS_TODOS',          9);
 
 // Arquivo de relacionamento entre funcionario e usuario do SACI
 define('FILE_REL_FUNC_USER', '/config/relFuncUser.php');
+
+$extensions_enable = array();
+$extensions_enable[] = "jpg";
+$extensions_enable[] = "jpeg";
 
 ?>
