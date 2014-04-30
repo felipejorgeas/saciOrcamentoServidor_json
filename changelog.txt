@@ -5,6 +5,13 @@
 ## Autor: Felipe Jorge - EAC Software
 
 
+# v0.8 - 30/04/2014
+
+- Corrigido problema relacionado a nomes de produtos que contém aspas simples e/ou duplas.
+
+- Melhoria na compatibilidade com imagens jpg.
+
+
 # v0.7 - 28/04/2014
 
 - Adicionado o código do orçamento no memorial descritivo enviado por email.
