@@ -1,7 +1,7 @@
 <?php
 
 // versao do sistema
-define('VERSAO', '0.7');
+define('VERSAO', '0.8');
 
 // Cargo do Funcionario 'empfnc.type' ON (emp.funcao = empfnc.no)
 define('EMPTYPE_INDEFINIDO',  0);
@@ -42,6 +42,8 @@ define('FILE_REL_FUNC_USER', '/config/relFuncUser.php');
 
 $extensions_enable = array();
 $extensions_enable[] = "jpg";
+$extensions_enable[] = "JPG";
 $extensions_enable[] = "jpeg";
+$extensions_enable[] = "JPEG";
 
 ?>
