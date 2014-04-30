@@ -15,10 +15,13 @@ function returnWS($wscallback, $wsstatus, $wsresult) {
   $retorno = array();
   $retorno['wsstatus'] = $wsstatus;
 
-  if(key_exists('wserror', $wsresult))
+  if (key_exists('wserror', $wsresult))
     $retorno['wserror'] = $wsresult['wserror'];
   else
     $retorno['wsresult'] = $wsresult;
+
+  /* escapa aspas simples e duplas */
+  scapeQuotes($retorno);
 
   /* converte o array para json */
   $retorno = json_encode($retorno);
@@ -28,7 +31,16 @@ function returnWS($wscallback, $wsstatus, $wsresult) {
   exit;
 }
 
-function mergeProdutos($produtos){
+function scapeQuotes(&$arr) {
+    foreach ($arr as $key => &$val) {
+      if (is_array($val))
+        scapeQuotes($val);
+      else
+        $val = str_replace (array("'", '"'), array("&#039;", "&quot;"), $val);
+    }
+  }
+
+function mergeProdutos($produtos) {
   $produtos_aux = $produtos;
   $q = count($produtos);
   for ($i = 0; $i < $q; $i++) {
