@@ -167,11 +167,6 @@ if ($res['resultado']['sucesso'] && isset($res['resultado']['dados']['produto'])
       $resized = $image->resize(300, 250);
       $resized->saveToFile($dir_full . $file_min, 80);
 
-      //ajusta a imagem normal para o padrao
-      $image = WideImage::load($dir_full . $file);
-      $resized = $image->resize(1024, 600);
-      $resized->saveToFile($dir_full . $file, 80);
-
       $wsresult['img'][] = array(
           'arquivo' => $url_full . $file
       );
@@ -181,7 +176,7 @@ if ($res['resultado']['sucesso'] && isset($res['resultado']['dados']['produto'])
 else{
   /* monta o xml de retorno */
   $wsstatus = 0;
-  $wsresult['wserror'] = "Produto n&atilde;o encontrado!";
+  $wsresult['wserror'] = sprintf("Produto <strong>%s</strong> n&atilde;o encontrado!", $produto['codigo']);
 
   // grava log
   $log->addLog(ACAO_RETORNO, "", $wsresult, SEPARADOR_FIM);
